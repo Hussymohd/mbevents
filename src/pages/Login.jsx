@@ -32,7 +32,7 @@ const Login = () => {
           position: "top-center",
         });
         //redirect to login page
-        redirect("/register");
+        redirect("/");
         //store token in localstorage
         localStorage.setItem("mb-token", result?.data?.token);
         //updating user
