@@ -61,7 +61,7 @@ const CreateEvent = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const url = "https://mbevents-server.onrender.com/api/v1/events";
+  const url = "https://mbevents-hussy.onrender.com/api/v1/events";
   const token = localStorage.getItem("mb-token");
   const handleSubmit = async (e) => {
     e.preventDefault();
