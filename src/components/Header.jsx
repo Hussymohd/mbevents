@@ -74,11 +74,11 @@ useEffect(() => {
           {isLoggedIn ? (
             <Nav className="position-relative logout ms-lg-auto d-flex flex-row gap-3">
               <div className="rounded-circle profile d-flex justify-content-center align-items-center">
-                <h1> {user} </h1>
+                <h1 className="fs-5"> {user} </h1>
               </div>
               <button
                 className="bg-transparent border-0"
-                onClick={handleShowPersonMenu}
+                onClick={handleShowPersonMenu} 
               >
                 {showMenu ? <IoIosArrowUp /> : <IoIosArrowDown />}
               </button>

@@ -145,7 +145,7 @@ const CreateEvent = () => {
               onClick={handleImage}
               className="rounded-2"
               style={{
-                backgroundImage: imgPreview ? url(`${imgPreview}`) : "none",
+                backgroundImage: imgPreview ? `url(${imgPreview})` : "none",
                 backgroundColor: imgPreview ? "transparent" : "#d9d9d9",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
