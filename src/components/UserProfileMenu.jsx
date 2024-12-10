@@ -28,14 +28,14 @@ const UserProfileMenu = ({ setIsLoggedIn }) => {
       to: "/error",
     },
   ];
- const redirect = useNavigate()
+  const redirect = useNavigate();
 
   const handleLogout = () => {
-      setIsLoggedIn(false)
-      localStorage.removeItem('mb-tokn')
-       localStorage.removeItem('user');
-       //redirect to login page
-       redirect('/login')
+    setIsLoggedIn(false);
+    localStorage.removeItem("mb-token");
+    localStorage.removeItem("user");
+    //redirect to login page
+    redirect("/login");
   };
 
   return (
@@ -55,7 +55,10 @@ const UserProfileMenu = ({ setIsLoggedIn }) => {
           </Link>
         );
       })}
-      <button onClick={handleLogout} className="w-100 bg-transparent border-0 d-flex gap-2 align-items-center border-bottom border-1 border-secondary-subtle text-decoration-none mb-3 text-secondary pb-2 fs-6">
+      <button
+        onClick={handleLogout}
+        className="w-100 bg-transparent border-0 d-flex gap-2 align-items-center border-bottom border-1 border-secondary-subtle text-decoration-none mb-3 text-secondary pb-2 fs-6"
+      >
         <MdOutlineLogout className="text-danger" />
         logout
       </button>

@@ -21,7 +21,7 @@ function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
-  const [user, setUser] = useState('JD')
+  const [user, setUser] = useState("JD");
 
   const handleToggle = () => {
     setExpanded(!expanded);
@@ -30,16 +30,19 @@ function Header() {
     setShowMenu(!showMenu);
   };
 
-const token = localStorage.getItem('mb-token')
-const loggedInUser = localStorage.getItem('user')
+  const token = localStorage.getItem("mb-token");
+  const loggedInUser = localStorage.getItem("user");
 
-useEffect(() => {
-  if (token) {
-     setIsLoggedIn(true);
-     const who = loggedInUser.split(' ').map((n) => n.charAt(0).toUpperCase()).join('')
-     setUser(who)
-  }
-}, []);
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+      const who = loggedInUser
+        .split(" ")
+        .map((n) => n.charAt(0).toUpperCase())
+        .join("");
+      setUser(who);
+    }
+  }, []);
 
   return (
     <Navbar expand="lg" className="bg-white header py-3 position-sticky top-0 ">
@@ -78,7 +81,7 @@ useEffect(() => {
               </div>
               <button
                 className="bg-transparent border-0"
-                onClick={handleShowPersonMenu} 
+                onClick={handleShowPersonMenu}
               >
                 {showMenu ? <IoIosArrowUp /> : <IoIosArrowDown />}
               </button>
@@ -88,7 +91,7 @@ useEffect(() => {
                   style={{ top: "80px", left: "-10px" }}
                   className="position-absolute "
                 >
-                  <UserProfileMenu setIsLoggedIn = {setIsLoggedIn} />
+                  <UserProfileMenu setIsLoggedIn={setIsLoggedIn} />
                 </div>
               )}
             </Nav>
