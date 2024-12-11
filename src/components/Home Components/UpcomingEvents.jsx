@@ -13,7 +13,6 @@ const UpcomingEvents = () => {
     isLoading,
     data: { events },
   } = useFetch(url);
-  //console.log(data);
 
   return (
     <div className="my-5 container">

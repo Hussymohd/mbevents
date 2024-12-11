@@ -10,47 +10,46 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Attending = () => {
-   const redirect = useNavigate();
-   const token = localStorage.getItem("mb-token");
-   const url = "https://mbevents-hussy.onrender.com/api/v1/events/attending";
-   const [events, setEvents] = useState([]);
-   const [isLoading, setIsLoading] = useState(true);
-   const [page, setPage] = useState(1);
-   const [totalPages, setTotalPages] = useState(0);
+  const redirect = useNavigate();
+  const token = localStorage.getItem("mb-token");
+  const url = "https://mbevents-hussy.onrender.com/api/v1/events/attending";
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
-   const getEvents = async () => {
-     setIsLoading(true);
-     try {
-       const result = await axios(`${url}?page=${page}`, {
-         headers: { Authorization: `Bearer ${token}` },
-       });
-       console.log(result);
-       setIsLoading(false);
-       setEvents(result.data.events);
-       setPage(result.data.currentPage);
-       setTotalPages(result.data.totalPages);
-     } catch (error) {
-       console.log(error);
-       if (error & (error?.status === 401)) {
-         toast.error("Session Expired, Login");
-         localStorage.removeItem("mb-token");
-         localStorage.removeItem("user");
-         redirect("/login");
-       }
-     }
-   };
+  const getEvents = async () => {
+    setIsLoading(true);
+    try {
+      const result = await axios(`${url}?page=${page}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-   useEffect(() => {
-     getEvents();
-   }, [page]);
+      setIsLoading(false);
+      setEvents(result.data.events);
+      setPage(result.data.currentPage);
+      setTotalPages(result.data.totalPages);
+    } catch (error) {
+      if (error & (error?.status === 401)) {
+        toast.error("Session Expired, Login");
+        localStorage.removeItem("mb-token");
+        localStorage.removeItem("user");
+        redirect("/login");
+      }
+    }
+  };
 
-   if (isLoading) {
-     return <Loader height="150px" />;
-   }
+  useEffect(() => {
+    getEvents();
+  }, [page]);
 
-   if (!isLoading & (events.length === 0)) {
-     return <Empty height="200px" content="You are Not Attending Any Events" />;
-   }
+  if (isLoading) {
+    return <Loader height="150px" />;
+  }
+
+  if (!isLoading & (events.length === 0)) {
+    return <Empty height="200px" content="You are Not Attending Any Events" />;
+  }
   return (
     <div className="container">
       <h2 className="my-3">Events Attending</h2>

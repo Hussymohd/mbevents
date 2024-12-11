@@ -25,7 +25,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const result = await axios.post(url, data);
-      console.log(result);
+
       if (result.status === 200) {
         //toast a success msg upon creating acc
         toast.success("Logged In Successfully", {
@@ -39,8 +39,6 @@ const Login = () => {
         localStorage.setItem("user", result?.data?.user?.fullName);
       }
     } catch (error) {
-      console.log(error);
-
       toast.error(error?.response?.data?.message || error?.message, {
         position: "top-center",
         autoClose: 7000,
@@ -52,7 +50,7 @@ const Login = () => {
     <div className="vh-100 d-flex justify-content-center align-items-center py-2  myform container">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-3 shadow-lg rounded-2"
+        className="p-3 shadow-lg rounded-2 position-relative"
       >
         <Link to="/">
           <img src={logo} alt="logo" className="d-block mx-auto my-2" />

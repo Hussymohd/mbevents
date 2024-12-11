@@ -28,7 +28,7 @@ const ResetPassword = () => {
 
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
-  console.log({ token });
+ 
 
   const url = "https://mbevents-hussy.onrender.com/api/v1/reset-password";
   const onSubmit = async (data) => {
@@ -57,7 +57,10 @@ const ResetPassword = () => {
   return (
     <div>
       <div className="vh-100 d-flex justify-content-center align-items-center reset-container">
-        <form onSubmit={handleSubmit(onSubmit)} className="p-2">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="p-2 position-relative"
+        >
           <Link to="/">
             <img src={logo} alt="logo" className="d-block mx-auto my-2" />
           </Link>

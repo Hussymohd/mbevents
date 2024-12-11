@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-const AppContext = createContext(); //library where we will be getting all the context we are going to work with
+const AppContext = createContext(); //library where we will be getting all the context (data) we are going to work with
 
 export const useAppContext = () => useContext(AppContext);
 
@@ -20,13 +20,12 @@ const AppProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const result = await axios (`${url}?page=${page}&searchTerm=${searchTerm}&location=${locationTerm}&category=${categoryTerm}&price=${priceTerm}`);
-      console.log(result);
       setIsLoading(false)
       setEvents(result.data.events);
       setPage(result.data.currentPage);
       setTotalPages(result.data.totalPages);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

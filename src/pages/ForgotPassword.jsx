@@ -20,26 +20,24 @@ const ForgotPassword = () => {
   const url = "https://mbevents-hussy.onrender.com/api/v1/forgot-password";
   const onSubmit = async (data) => {
     // console.log(data);
-     try {
+    try {
       const result = await axios.post(url, data);
       if (result.status === 200) {
-        toast.success('Password reset link sent to your mail', {position: "top-center",});
+        toast.success("Password reset link sent to your mail", {
+          position: "top-center",
+        });
       }
-
-     } catch (error) {
-      console.log(error);
-      
+    } catch (error) {
       toast.error(error?.response?.data?.message || error?.message, {
         position: "top-center",
         autoClose: 7000,
       });
-     }
-
+    }
   };
 
   return (
     <div className="vh-100 d-flex justify-content-center align-items-center reset-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="p-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="p-2 position-relative">
         <Link to="/">
           <img src={logo} alt="logo" className="d-block mx-auto my-2" />
         </Link>
@@ -58,9 +56,9 @@ const ForgotPassword = () => {
         )}
         <ActionBtn
           width={"100%"}
-          content={ isSubmitting ? 'Resetting Password...' : 'Reset Password'}
+          content={isSubmitting ? "Resetting Password..." : "Reset Password"}
           type="submit"
-          className= {isSubmitting ? 'mt-2 bg-secondary' : 'specialbtn mt-2'}
+          className={isSubmitting ? "mt-2 bg-secondary" : "specialbtn mt-2"}
           disable={isSubmitting}
         />
       </form>

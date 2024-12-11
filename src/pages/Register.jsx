@@ -18,8 +18,7 @@ const Register = () => {
   const [show2, setShow2] = useState(false);
   const toggleShow = () => setShow(!show);
   const toggleShow2 = () => setShow2(!show2);
-  const redirect = useNavigate()
-
+  const redirect = useNavigate();
 
   const {
     register,
@@ -29,38 +28,34 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(registerSchema),
   });
-//post request to our api
-const url = "https://mbevents-hussy.onrender.com/api/v1/register";
+  //post request to our api
+  const url = "https://mbevents-hussy.onrender.com/api/v1/register";
   const onSubmit = async (data) => {
     // Handle form submission logic here
     // console.log(data);
     try {
-       const result = await axios.post(url, data);
-      //  console.log(result);
-       if (result.status === 201) {
-         //toast a success msg upon creating acc
-         toast.success("User Created Successfully", {
-           position: "top-center",
-         });
-       }
-       //redirect to login page
-       redirect("/login")
-       
+      const result = await axios.post(url, data);
+      if (result.status === 201) {
+        //toast a success msg upon creating acc
+        toast.success("User Created Successfully", {
+          position: "top-center",
+        });
+      }
+      //redirect to login page
+      redirect("/login");
     } catch (error) {
       toast.error(error?.response?.data?.message, {
         position: "top-center",
         autoClose: 7000,
       });
     }
-   
-    
   };
 
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center py-2 myform container">
+    <div className="vh-100 d-flex justify-content-center align-items-center py-2 myform container ">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-3 p-lg-5 shadow-lg rounded-3"
+        className="p-3 p-lg-5 shadow-lg rounded-3 position-relative"
       >
         <Link to="/">
           <img src={logo} alt="logo" className="d-block mx-auto my-2" />

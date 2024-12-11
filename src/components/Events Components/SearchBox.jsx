@@ -19,21 +19,21 @@ const SearchBox = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(search);
-     setLocationTerm(Location)
-        setCategoryTerm(category)
-        setPriceTerm(price)
-  }
+    setLocationTerm(location);
+    setCategoryTerm(category);
+    setPriceTerm(price);
+  };
   const resetFilters = () => {
-    //update api fields 
-    setSearchTerm('');
-    setCategoryTerm('');
-    setPriceTerm('');
-    setLocationTerm('');
+    //update api fields
+    setSearchTerm("");
+    setCategoryTerm("");
+    setPriceTerm("");
+    setLocationTerm("");
     //update the input fields
-    setSearch('');
-    setLocation('');
-    setPrice('');
-    setCategory('');
+    setSearch("");
+    setLocation("");
+    setPrice("");
+    setCategory("");
   };
 
   return (
