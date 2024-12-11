@@ -60,7 +60,7 @@ const UserProfileMenu = ({ setIsLoggedIn }) => {
         className="w-100 bg-transparent border-0 d-flex gap-2 align-items-center border-bottom border-1 border-secondary-subtle text-decoration-none mb-3 text-secondary pb-2 fs-6"
       >
         <MdOutlineLogout className="text-danger" />
-        logout
+        Logout
       </button>
     </div>
   );
