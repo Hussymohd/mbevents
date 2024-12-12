@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/Layout";
 import SearchBox from "../components/Events Components/SearchBox";
 import AllEvents from "../components/Events Components/AllEvents";
@@ -6,8 +6,7 @@ import Pagination from "../components/Pagination";
 import { useAppContext } from "../context/appcontext";
 
 const Events = () => {
-   const { events, isLoading, totalPages, page, setPage } = useAppContext();
-
+  const { events, isLoading, totalPages, page, setPage } = useAppContext();
   return (
     <>
       <Layout>

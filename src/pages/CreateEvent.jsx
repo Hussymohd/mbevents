@@ -6,6 +6,7 @@ import SuccessModal from "../components/SuccessModal";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CreateEvent = () => {
   const redirect = useNavigate();
@@ -434,13 +435,15 @@ const CreateEvent = () => {
 
           {/* Submit button */}
           <div className="d-flex gap-3 align-items-center my-5">
-            <button
-              style={{ height: "50px", width: "150px" }}
-              className="btn-outline-dark btn border border-2 border-dark fw-bold"
-              type="button"
-            >
-              Cancel
-            </button>
+            <Link to="/events">
+              <button
+                style={{ height: "50px", width: "150px" }}
+                className="btn-outline-dark btn border border-2 border-dark fw-bold"
+                type="button"
+              >
+                Cancel
+              </button>
+            </Link>
             <ActionBtn
               type="submit"
               width={"172px"}
